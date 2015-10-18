@@ -69,7 +69,7 @@ public class Point implements Comparable<Point> {
         if (that.x == x) {
             return Double.POSITIVE_INFINITY;
         }
-        return (that.y - y) / (that.x - x);
+        return (double) (that.y - y) / (that.x - x);
     }
 
     /**
@@ -112,13 +112,16 @@ public class Point implements Comparable<Point> {
         return new Comparator<Point>() {
             @Override
             public int compare(Point o1, Point o2) {
-                double slope1,slope2;
-                slope1=slopeTo(o1);
-                slope2=slopeTo(o2);
-                if (slope1>slope2){
+                double slope1, slope2;
+                slope1 = slopeTo(o1);
+                slope2 = slopeTo(o2);
+//                if (slope1 == Double.NEGATIVE_INFINITY || slope2 == Double.NEGATIVE_INFINITY) {
+//                    return 0;
+//                }
+                if (slope1 > slope2) {
                     return 1;
                 }
-                if (slope1<slope2){
+                if (slope1 < slope2) {
                     return -1;
                 }
                 return 0;
@@ -145,8 +148,8 @@ public class Point implements Comparable<Point> {
     public static void main(String[] args) {
         /* YOUR CODE HERE */
 
-        Point s1 = new Point(10,10);
-        Point s2 = new Point(20,20);
+        Point s1 = new Point(10, 10);
+        Point s2 = new Point(20, 20);
         double s = s1.slopeTo(s2);
 //        s1.draw();
 //        s2.draw();

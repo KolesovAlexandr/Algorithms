@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * Created by Саша on 17.10.2015.
+ * Created by пїЅпїЅпїЅпїЅ on 17.10.2015.
  */
 public class SampleClient {
 
@@ -34,6 +34,7 @@ public class SampleClient {
 //        BruteCollinearPoints collinear = new BruteCollinearPoints(points);
         FastCollinearPoints collinear = new FastCollinearPoints(points);
         for (LineSegment segment : collinear.segments()) {
+            if (segment==null) continue;
             StdOut.println(segment);
             segment.draw();
         }
